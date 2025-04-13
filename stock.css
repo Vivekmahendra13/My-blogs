@@ -1,0 +1,197 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  background-color: #f4f6f8;
+  color: #2d3436;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #141e30;
+  padding: 15px 0;
+  z-index: 999;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  color: #74b9ff;
+  background-color: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+/* Header */
+header {
+  padding: 100px 20px 60px;
+  background: linear-gradient(270deg, #243b55, #141e30);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  animation: slideFadeDown 1s ease-out;
+}
+
+header h3 {
+  font-size: 1.4em;
+  color: #dcdde1;
+  animation: slideFadeUp 1s ease-out;
+}
+
+@keyframes slideFadeDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.tagline {
+  font-style: italic;
+  color: #bdc3c7;
+  font-size: 1.15em;
+  animation: fadeInTagline 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInTagline {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Content Area */
+.content {
+  padding-top: 100px;
+}
+
+/* Sections */
+section {
+  display: none;
+  background: #fff;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlide 0.6s ease forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+section:hover {
+  transform: translateY(10px);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Show active section using :target */
+section:target {
+  display: block;
+  animation: fadeInSlide 0.6s ease forwards;
+}
+
+/* Default to show About if no target selected */
+section:first-of-type {
+  display: block;
+  animation: fadeInSlide 0.6s ease forwards;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1.05em;
+  text-align: justify;
+  animation: fadeInText 1s ease forwards;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Images */
+img {
+  display: block;
+  width: 600px;
+  height: 350px;
+  margin: 30px auto;
+  padding: 5px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  header h1 {
+    font-size: 2.2em;
+  }
+
+  header h3 {
+    font-size: 1.2em;
+  }
+
+  .tagline {
+    font-size: 1em;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
